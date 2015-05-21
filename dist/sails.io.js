@@ -721,7 +721,7 @@ var parts=["source","protocol","authority","userInfo","user","password","host","
      * @param {Function} cb   ::    callback function to call when finished [optional]
      */
 
-    SailsSocket.prototype.get = function(url, data, cb) {
+    SailsSocket.prototype.get = function(url, data, config, cb) {
 
       // `data` is optional
       if (typeof data === 'function') {
@@ -732,7 +732,8 @@ var parts=["source","protocol","authority","userInfo","user","password","host","
       return this.request({
         method: 'get',
         params: data,
-        url: url
+        url: url,
+        headers: config.headers || ''
       }, cb);
     };
 
@@ -749,7 +750,7 @@ var parts=["source","protocol","authority","userInfo","user","password","host","
      * @param {Function} cb   ::    callback function to call when finished [optional]
      */
 
-    SailsSocket.prototype.post = function(url, data, cb) {
+    SailsSocket.prototype.post = function(url, data, config, cb) {
 
       // `data` is optional
       if (typeof data === 'function') {
@@ -760,7 +761,8 @@ var parts=["source","protocol","authority","userInfo","user","password","host","
       return this.request({
         method: 'post',
         data: data,
-        url: url
+        url: url,
+        headers: config.headers || ''
       }, cb);
     };
 
@@ -777,7 +779,7 @@ var parts=["source","protocol","authority","userInfo","user","password","host","
      * @param {Function} cb   ::    callback function to call when finished [optional]
      */
 
-    SailsSocket.prototype.put = function(url, data, cb) {
+    SailsSocket.prototype.put = function(url, data, config,cb) {
 
       // `data` is optional
       if (typeof data === 'function') {
@@ -788,7 +790,8 @@ var parts=["source","protocol","authority","userInfo","user","password","host","
       return this.request({
         method: 'put',
         params: data,
-        url: url
+        url: url,
+        headers: config.headers || ''
       }, cb);
     };
 
@@ -805,7 +808,7 @@ var parts=["source","protocol","authority","userInfo","user","password","host","
      * @param {Function} cb   ::    callback function to call when finished [optional]
      */
 
-    SailsSocket.prototype['delete'] = function(url, data, cb) {
+    SailsSocket.prototype['delete'] = function(url, data, config, cb) {
 
       // `data` is optional
       if (typeof data === 'function') {
@@ -816,7 +819,8 @@ var parts=["source","protocol","authority","userInfo","user","password","host","
       return this.request({
         method: 'delete',
         params: data,
-        url: url
+        url: url,
+        headers: config.headers || ''
       }, cb);
     };
 
